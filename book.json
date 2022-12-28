@@ -1,0 +1,14 @@
+{
+    "root": "./src",
+    "title": "Honkit Template",
+    "description": "Honkit のテンプレート",
+    "author": "Hiroto Kato",
+    "language": "ja",
+    "plugins": [
+        "anchors",
+        "hide-published-with",
+        "intopic-toc",
+        "collapsible-chapters",
+        "plantuml-server"
+    ]
+}

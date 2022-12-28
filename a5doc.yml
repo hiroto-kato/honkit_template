@@ -1,0 +1,37 @@
+projectCode: honkit_template
+projectName: &projectName honkit template
+
+# テーブルのカラムについて、テーブル間で同名のカラムについて、
+# 型と桁数が一致していることチェックする
+columnNameConsistencyCheck: true;
+
+table:
+  src:
+    - ./src/db/*.yml
+  tableMdDir: ./src/db/table
+  erd:
+    - id: ER-ALL
+      docTitle: ER図(全体)
+      description: システム全体のER図
+      path: ./src/db/er/er-all.md
+      # 表示するテキスト形式
+      # logical=論理名 | physical=物理名 | both=物理名+論理名
+      labelType: logical
+      # 作図するテーブルを指定
+      entityPatterns: 
+        # id=テーブルIDの正規表現
+        # columnType=表示するカラムタイプ
+        # all=全カラムを表示 | no=カラムなし | pk=PKのみ | pk+uk=PKとUKのみ
+        - id: .*
+          columnType: all
+
+swagger:
+  src:
+    - 設計/API/**/*.yml
+    - "!設計/API/swagger.yml"
+    - "!設計/API/common.yml"
+  dst: 設計/API
+  common: 設計/API/common.yml
+  merge: 
+    - 設計/API/swagger.yml
+    - 設計/API/swagger.json

@@ -1,0 +1,34 @@
+id: m_company # テーブル名（物理名）
+name: compnay # テーブル名（論理名）
+category: master # カテゴリ
+description: | # 概要（MD記法）
+  アカウントを管理するテーブル。  
+  テーブルの該当に関する説明をここに記述する。この記述自体がMDで書ける。
+  * 注意事項１
+  * 注意事項２
+  * 注意事項３
+
+columns: # カラムの使用
+  id: # カラム名（物理）
+    name: ID # カラム名（論理）
+    type: long # 型
+    autoIncriment: true
+
+  company_name:
+    name: 会社名
+    type: varchar
+    length: 32
+    notNull: false # NOT NULL 制約
+
+  deleted_at:
+    name: 削除日時
+    type: datetime
+
+primary: # プライマリーキー
+  - id
+
+indexes: # インデックス
+  uk_id: # インデックス名
+    type: unique # インデックスのタイプ（unique が指定可能。デフォルト=非 unique）
+    columns: # カラム名
+      - id

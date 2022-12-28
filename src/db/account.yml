@@ -1,0 +1,55 @@
+id: m_account # テーブル名（物理名）
+name: account # テーブル名（論理名）
+category: master # カテゴリ
+description: | # 概要（MD記法）
+  アカウントを管理するテーブル。  
+  テーブルの該当に関する説明をここに記述する。この記述自体がMDで書ける。
+  * 注意事項１
+  * 注意事項２
+  * 注意事項３
+
+columns: # カラムの使用
+  id: # カラム名（物理）
+    name: ID # カラム名（論理）
+    type: long # 型
+    autoIncriment: true
+
+  login_id:
+    name: ログインID
+    type: varchar
+    length: 100 # 長さ
+
+  account_name:
+    name: 名前
+    type: varchar
+    length: 32
+    notNull: false # NOT NULL 制約
+    desc: |
+      アカウント名が登録されていないときには、
+      ログインIDをアカウント名として使用する
+
+  company_id:
+    name: 会社ID
+    type: long
+
+  deleted_at:
+    name: 削除日時
+    type: datetime
+
+primary: # プライマリーキー
+  - id
+
+indexes: # インデックス
+  uk_login_id: # インデックス名
+    type: unique # インデックスのタイプ（unique が指定可能。デフォルト=非 unique）
+    columns: # カラム名
+      - login_id
+      - deleted_at
+
+foreignKeys: # 外部キー
+  fk_dept_company: # 外部キー名
+    columns: [company_id] # カラム名
+    references: # 参照先
+      tableId: m_company # テーブル名
+      columns: [id] # カラム名
+    relationType: 1N:1 # 関係
