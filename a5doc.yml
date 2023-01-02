@@ -7,7 +7,7 @@ columnNameConsistencyCheck: true;
 
 table:
   src:
-    - ./src/db/*.yml
+    - ./src/db/*.yaml
   tableMdDir: ./src/db/table
   erd:
     - id: ER-ALL
@@ -24,14 +24,3 @@ table:
         # all=全カラムを表示 | no=カラムなし | pk=PKのみ | pk+uk=PKとUKのみ
         - id: .*
           columnType: all
-
-swagger:
-  src:
-    - 設計/API/**/*.yml
-    - "!設計/API/swagger.yml"
-    - "!設計/API/common.yml"
-  dst: 設計/API
-  common: 設計/API/common.yml
-  merge: 
-    - 設計/API/swagger.yml
-    - 設計/API/swagger.json

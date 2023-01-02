@@ -2,14 +2,14 @@
 
 - [はじめに](./README.md)
 
-## 設計
+## 機能設計
 
 - [テスト1](./design/test1.md)
 - [テスト2](./design/test2.md)
 
 ## API
 
-- [API仕様]()
+- [API仕様](./api/api.md)
 
 ## DB
 
